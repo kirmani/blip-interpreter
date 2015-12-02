@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef UNARY_NODE_H
-#define UNARY_NODE_H
+#ifndef NODES_UNARY_NODE_H_
+#define NODES_UNARY_NODE_H_
 
 class UnaryNode : public ExpressionNode {
  protected:
@@ -20,4 +20,4 @@ class UnaryNode : public ExpressionNode {
   }
 };
 
-#endif  // UNARY_NODE_H
+#endif  // NODES_UNARY_NODE_H_

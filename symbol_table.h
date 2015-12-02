@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef SYMBOL_TABLE_H
-#define SYMBOL_TABLE_H
+#ifndef SYMBOL_TABLE_H_
+#define SYMBOL_TABLE_H_
 
 #include "./expression_tree.h"
 #include "./string.h"
@@ -25,6 +25,6 @@ namespace SymbolTable {
 
   void AddFunction(DefunNode* func);
   int CallFunction(String name, const Vector<int>& args);
-}
+}  // namespace SymbolTable
 
-#endif  // SYMBOL_TABLE_H
+#endif  // SYMBOL_TABLE_H_

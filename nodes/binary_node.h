@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef BINARY_NODE_H
-#define BINARY_NODE_H
+#ifndef NODES_BINARY_NODE_H_
+#define NODES_BINARY_NODE_H_
 
 #include "./expression_node.h"
 
@@ -25,4 +25,4 @@ class BinaryNode : public ExpressionNode {
   }
 };
 
-#endif  // BINARY_NODE_H
+#endif  // NODES_BINARY_NODE_H_

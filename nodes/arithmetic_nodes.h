@@ -3,20 +3,18 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef ARITHMETIC_NODES_H
-#define ARITHMETIC_NODES_H
+#ifndef NODES_ARITHMETIC_NODES_H_
+#define NODES_ARITHMETIC_NODES_H_
 
-#include <stdio.h>
-
-#include "binary_node.h"
-#include "unary_node.h"
+#include "./binary_node.h"
+#include "./unary_node.h"
 
 class NumNode : public ExpressionNode {
  private:
   int value_;
 
  public:
-  NumNode(int value) {
+  explicit NumNode(int value) {
     value_ = value;
   }
 
@@ -130,4 +128,4 @@ class NegNode : public UnaryNode {
   }
 };
 
-#endif  // ARITHMETIC_NODES_H
+#endif  // NODES_ARITHMETIC_NODES_H_

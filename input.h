@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef INPUT_H
-#define INPUT_H
+#ifndef INPUT_H_
+#define INPUT_H_
 
 #include "./string.h"
 
@@ -25,6 +25,6 @@ namespace Input {
   String PeekToken();
   String GetCurrentToken();
   int GetTokenValue();
-}
+}  // namespace Input
 
-#endif  // INPUT_H
+#endif  // INPUT_H_

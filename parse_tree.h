@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef PARSE_TREE_H
-#define PARSE_TREE_H
+#ifndef PARSE_TREE_H_
+#define PARSE_TREE_H_
 
 #include "./vector.h"
 #include "./nodes/program_nodes.h"
@@ -19,4 +19,4 @@ class ParseTree {
   ~ParseTree();
 };
 
-#endif  // PARSE_TREE_H
+#endif  // PARSE_TREE_H_

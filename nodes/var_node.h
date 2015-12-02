@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef VAR_NODE_H
-#define VAR_NODE_H
+#ifndef NODES_VAR_NODE_H_
+#define NODES_VAR_NODE_H_
 
 #include "../string.h"
 #include "../symbol_table.h"
@@ -15,7 +15,7 @@ class VarNode : public ExpressionNode {
   String name_;
 
  public:
-  VarNode(String name) {
+  explicit VarNode(String name) {
     name_ = name;
   }
 
@@ -24,4 +24,4 @@ class VarNode : public ExpressionNode {
   }
 };
 
-#endif  // VAR_NODE_H
+#endif  // NODES_VAR_NODE_H_

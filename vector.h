@@ -5,8 +5,8 @@
  * Distributed under terms of the MIT license.
  */
 
-#ifndef CLASS_VECTOR_VECTOR_H_
-#define CLASS_VECTOR_VECTOR_H_
+#ifndef VECTOR_H_
+#define VECTOR_H_
 
 #include <assert.h>
 #include <stdlib.h>
@@ -77,4 +77,4 @@ class Vector {
     }
 };
 
-#endif  // CLASS_VECTOR_VECTOR_H_
+#endif  // VECTOR_H_

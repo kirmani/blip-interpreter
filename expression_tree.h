@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef EXPRESSION_TREE_H
-#define EXPRESSION_TREE_H
+#ifndef EXPRESSION_TREE_H_
+#define EXPRESSION_TREE_H_
 
 #include "./input.h"
 #include "./string.h"
@@ -28,4 +28,4 @@ class ExpressionTree {
   }
 };
 
-#endif  // EXPRESSION_TREE_H
+#endif  // EXPRESSION_TREE_H_

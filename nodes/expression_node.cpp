@@ -3,7 +3,7 @@
 //
 // Distributed under terms of the MIT license.
 
-#include "expression_node.h"
+#include "./expression_node.h"
 
 #include "./arithmetic_nodes.h"
 #include "./call_node.h"

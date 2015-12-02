@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef CALL_NODE_H
-#define CALL_NODE_H
+#ifndef NODES_CALL_NODE_H_
+#define NODES_CALL_NODE_H_
 
 #include "./expression_node.h"
 #include "../expression_tree.h"
@@ -22,4 +22,4 @@ class CallNode : public ExpressionNode {
   ~CallNode();
 };
 
-#endif  // CALL_NODE_H
+#endif  // NODES_CALL_NODE_H_

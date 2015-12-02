@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef PROGRAM_NODES_H
-#define PROGRAM_NODES_H
+#ifndef NODES_PROGRAM_NODES_H_
+#define NODES_PROGRAM_NODES_H_
 
 #include "../expression_tree.h"
 #include "../string.h"
@@ -114,4 +114,4 @@ class DefunNode : public ProgramNode {
 
 ProgramNode* NextProgramNode();
 
-#endif  // PROGRAM_NODES_H
+#endif  // NODES_PROGRAM_NODES_H_

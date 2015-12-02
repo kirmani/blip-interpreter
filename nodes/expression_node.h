@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef EXPRESSION_NODE_H
-#define EXPRESSION_NODE_H
+#ifndef NODES_EXPRESSION_NODE_H_
+#define NODES_EXPRESSION_NODE_H_
 
 class ExpressionNode {
  public:
@@ -14,4 +14,4 @@ class ExpressionNode {
 
 ExpressionNode* NextExpressionNode();
 
-#endif  // EXPRESSION_NODE_H
+#endif  // NODES_EXPRESSION_NODE_H_

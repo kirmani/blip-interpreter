@@ -3,8 +3,8 @@
 //
 // Distributed under terms of the MIT license.
 
-#ifndef STUDENTS_SK35375_PROJECT9_STRING_H_
-#define STUDENTS_SK35375_PROJECT9_STRING_H_
+#ifndef STRING_H_
+#define STRING_H_
 
 #include <stdio.h>
 
@@ -28,7 +28,8 @@ class String {
     }
     digits[index] = '\0';
     return digits;
- }
+  }
+
  public:
   explicit String(const char* src) {
     Construct(src);
@@ -160,4 +161,4 @@ class String {
   }
 };
 
-#endif  // STUDENTS_SK35375_PROJECT9_STRING_H_
+#endif  // STRING_H_
