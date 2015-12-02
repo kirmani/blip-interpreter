@@ -48,7 +48,10 @@ void SwitchTable(String new_table) {
 
 String GetCurrentTable() { return current_table_; }
 
-void DeleteTable(String name) { symbol_table_->erase(name); }
+void DeleteTable(String name) {
+  delete (*symbol_table_)[name];
+  symbol_table_->erase(name);
+}
 
 void AddFunction(DefunNode* func) { (*function_list_)[func->name] = func; }
 
@@ -56,7 +59,11 @@ int CallFunction(String name, const Vector<int>& args) {
   return (*function_list_)[name]->Call(args);
 }
 
-void free() {
+void Free() {
+  for (auto iterator = symbol_table_->begin(); iterator != symbol_table_->end();
+       iterator++) {
+    delete iterator->second;
+  }
   delete symbol_table_;
   delete function_list_;
 }

@@ -16,10 +16,10 @@ FILE* input_ = stdin;
 char buff_[kBuffSize];
 int cursor_ = 0;
 
-static char current_token_[kTokenMaxSize];
-static int current_token_value_ = 0;
-static TokenType current_token_type_ = TokenType::INVALID;
-static bool peeked_ = false;
+char* current_token_;
+int current_token_value_;
+TokenType current_token_type_;
+bool peeked_ = false;
 
 bool Initialize(char* filename) {
   FILE* p = fopen(filename, "r");
@@ -31,6 +31,11 @@ bool Initialize(char* filename) {
   input_ = p;
   cursor_ = 0;
   buff_[0] = 0;
+
+  current_token_ = new char[kTokenMaxSize];
+  current_token_value_ = 0;
+  current_token_type_ = TokenType::INVALID;
+  peeked_ = false;
   return true;
 }
 
@@ -127,5 +132,10 @@ int GetTokenValue() { return current_token_value_; }
 
 String GetCurrentToken() {
   return String{current_token_};
+}
+
+void Close() {
+  fclose(input_);
+  delete[] current_token_;
 }
 }  // namespace Input

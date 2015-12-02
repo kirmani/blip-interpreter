@@ -33,7 +33,11 @@ class String {
  public:
   explicit String(const char* src) { Construct(src); }
 
-  explicit String(int num) { Construct(integer_to_ascii(num)); }
+  explicit String(int num) {
+    char* stringified_num = integer_to_ascii(num);
+    Construct(stringified_num);
+    delete[] stringified_num;
+  }
 
   String(void) { Construct(""); }
 
@@ -60,7 +64,9 @@ class String {
       ptr[str1_size + i] = const_cast<String&>(str2)[i];
     }
     ptr[str1_size + str2_size] = '\0';
-    return String{ptr};
+    String result{ptr};
+    delete[] ptr;
+    return result;
   }
 
   char operator[](int index) { return this->ptr_[index]; }

@@ -22,4 +22,7 @@ int main(int argc, char* argv[]) {
 
   ParseTree p;
   p.Execute();
+
+  SymbolTable::Free();
+  Input::Close();
 }

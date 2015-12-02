@@ -18,6 +18,7 @@ enum TokenType {
 };
 
 bool Initialize(char* filename);
+void Close();
 
 void SkipLine();
 void ReadToken();
