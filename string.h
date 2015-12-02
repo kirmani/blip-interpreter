@@ -31,25 +31,15 @@ class String {
   }
 
  public:
-  explicit String(const char* src) {
-    Construct(src);
-  }
+  explicit String(const char* src) { Construct(src); }
 
-  explicit String(int num) {
-    Construct(integer_to_ascii(num));
-  }
+  explicit String(int num) { Construct(integer_to_ascii(num)); }
 
-  String(void) {
-    Construct("");
-  }
+  String(void) { Construct(""); }
 
-  String(const String& that) {
-    Copy(that);
-  }
+  String(const String& that) { Copy(that); }
 
-  ~String(void) {
-    Destroy();
-  }
+  ~String(void) { Destroy(); }
 
   String& operator=(const String& that) {
     if (this != &that) {
@@ -73,9 +63,7 @@ class String {
     return String{ptr};
   }
 
-  char operator[](int index) {
-    return this->ptr_[index];
-  }
+  char operator[](int index) { return this->ptr_[index]; }
 
   String& operator=(const char* src) {
     Destroy();
@@ -83,22 +71,16 @@ class String {
     return *this;
   }
 
-  const char* c_str(void) const {
-    return ptr_;
-  }
+  const char* c_str(void) const { return ptr_; }
 
-  int Size(void) const {
-    return len_;
-  }
+  int Size(void) const { return len_; }
 
   bool operator==(String s2) const {
     const String& s1 = *this;
-    if (s1.Size() != s2.Size())
-      return false;
+    if (s1.Size() != s2.Size()) return false;
     int size = s1.Size();
     for (int index = 0; index < size; index++)
-      if (s1.ptr_[index] != s2.ptr_[index])
-        return false;
+      if (s1.ptr_[index] != s2.ptr_[index]) return false;
     return true;
   }
 
@@ -106,16 +88,15 @@ class String {
     const String& s1 = *this;
     int k = 0;
     while (s1.ptr_[k] == s2.ptr_[k]) {
-      if (s1.ptr_[k] == 0)
-        return false;
+      if (s1.ptr_[k] == 0) return false;
       k += 1;
     }
     return s1.ptr_[k] < s2.ptr_[k];
   }
 
-
   bool operator!=(String s2) const {
-    const String& s1 = *this; return !(s1 == s2);
+    const String& s1 = *this;
+    return !(s1 == s2);
   }
 
   bool operator>(String s2) const {
@@ -136,8 +117,7 @@ class String {
  private:
   void Construct(const char* src) {
     len_ = 0;
-    while (src[len_])
-      len_++;
+    while (src[len_]) len_++;
     ptr_ = new char[len_ + 1];
     Copy(src);
   }
@@ -156,9 +136,7 @@ class String {
     Copy(that.ptr_);
   }
 
-  void Destroy(void) {
-    delete[] ptr_;
-  }
+  void Destroy(void) { delete[] ptr_; }
 };
 
 #endif  // STRING_H_

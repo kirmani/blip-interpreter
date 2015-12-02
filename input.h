@@ -9,22 +9,22 @@
 #include "./string.h"
 
 namespace Input {
-  enum TokenType {
-    NUMBER,
-    SYMBOL,
-    NAME,
-    END,
-    INVALID
-  };
+enum TokenType {
+  NUMBER,
+  SYMBOL,
+  NAME,
+  END,
+  INVALID
+};
 
-  bool Initialize(char* filename);
+bool Initialize(char* filename);
 
-  void SkipLine();
-  void ReadToken();
-  TokenType GetTokenType();
-  String PeekToken();
-  String GetCurrentToken();
-  int GetTokenValue();
+void SkipLine();
+void ReadToken();
+TokenType GetTokenType();
+String PeekToken();
+String GetCurrentToken();
+int GetTokenValue();
 }  // namespace Input
 
 #endif  // INPUT_H_

@@ -15,13 +15,9 @@ class VarNode : public ExpressionNode {
   String name_;
 
  public:
-  explicit VarNode(String name) {
-    name_ = name;
-  }
+  explicit VarNode(String name) { name_ = name; }
 
-  int Compute() {
-    return SymbolTable::GetSymbol(name_);
-  }
+  int Compute() { return SymbolTable::GetSymbol(name_); }
 };
 
 #endif  // NODES_VAR_NODE_H_

@@ -14,118 +14,84 @@ class NumNode : public ExpressionNode {
   int value_;
 
  public:
-  explicit NumNode(int value) {
-    value_ = value;
-  }
+  explicit NumNode(int value) { value_ = value; }
 
-  int Compute() {
-    return value_;
-  }
+  int Compute() { return value_; }
 };
 
 class AddNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() + right_->Compute();
-  }
+  int Compute() { return left_->Compute() + right_->Compute(); }
 };
 
 class SubNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() - right_->Compute();
-  }
+  int Compute() { return left_->Compute() - right_->Compute(); }
 };
 
 class MulNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() * right_->Compute();
-  }
+  int Compute() { return left_->Compute() * right_->Compute(); }
 };
 
 class DivNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() / right_->Compute();
-  }
+  int Compute() { return left_->Compute() / right_->Compute(); }
 };
 
 class ModNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() % right_->Compute();
-  }
+  int Compute() { return left_->Compute() % right_->Compute(); }
 };
 
 class AndNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() && right_->Compute();
-  }
+  int Compute() { return left_->Compute() && right_->Compute(); }
 };
 
 class OrNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() || right_->Compute();
-  }
+  int Compute() { return left_->Compute() || right_->Compute(); }
 };
 
 class LessNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() < right_->Compute();
-  }
+  int Compute() { return left_->Compute() < right_->Compute(); }
 };
 
 class GreaterNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() > right_->Compute();
-  }
+  int Compute() { return left_->Compute() > right_->Compute(); }
 };
 
 class EquNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() == right_->Compute();
-  }
+  int Compute() { return left_->Compute() == right_->Compute(); }
 };
 
 class NotEquNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() != right_->Compute();
-  }
+  int Compute() { return left_->Compute() != right_->Compute(); }
 };
 
 class LEquNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() <= right_->Compute();
-  }
+  int Compute() { return left_->Compute() <= right_->Compute(); }
 };
 
 class GEquNode : public BinaryNode {
  public:
-  int Compute() {
-    return left_->Compute() >= right_->Compute();
-  }
+  int Compute() { return left_->Compute() >= right_->Compute(); }
 };
 
 class NotNode : public UnaryNode {
  public:
-  int Compute() {
-    return !child_->Compute();
-  }
+  int Compute() { return !child_->Compute(); }
 };
 
 class NegNode : public UnaryNode {
  public:
-  int Compute() {
-    return -1 * child_->Compute();
-  }
+  int Compute() { return -1 * child_->Compute(); }
 };
 
 #endif  // NODES_ARITHMETIC_NODES_H_

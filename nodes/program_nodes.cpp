@@ -3,7 +3,6 @@
 //
 // Distributed under terms of the MIT license.
 
-
 #include "./program_nodes.h"
 
 #include <sstream>
@@ -60,9 +59,7 @@ ReturnValue VarDefNode::Execute() {
   return base_execute();
 }
 
-VarDefNode::~VarDefNode() {
-  delete e_;
-}
+VarDefNode::~VarDefNode() { delete e_; }
 
 // Set
 SetNode::SetNode() {
@@ -76,9 +73,7 @@ ReturnValue SetNode::Execute() {
   return base_execute();
 }
 
-SetNode::~SetNode() {
-  delete e_;
-}
+SetNode::~SetNode() { delete e_; }
 
 // Text
 TextNode::TextNode() {
@@ -92,18 +87,14 @@ ReturnValue TextNode::Execute() {
 }
 
 // Output
-OutputNode::OutputNode() {
-  e_ = new ExpressionTree();
-}
+OutputNode::OutputNode() { e_ = new ExpressionTree(); }
 
 ReturnValue OutputNode::Execute() {
   printf("%d", e_->Compute());
   return base_execute();
 }
 
-OutputNode::~OutputNode() {
-  delete e_;
-}
+OutputNode::~OutputNode() { delete e_; }
 
 // Do
 DoNode::DoNode() {
@@ -189,18 +180,14 @@ IfNode::~IfNode() {
 }
 
 // Return
-ReturnNode::ReturnNode() {
-  e_ = new ExpressionTree();
-}
+ReturnNode::ReturnNode() { e_ = new ExpressionTree(); }
 
 ReturnValue ReturnNode::Execute() {
   ReturnValue r = {e_->Compute(), true};
   return r;
 }
 
-ReturnNode::~ReturnNode() {
-  delete e_;
-}
+ReturnNode::~ReturnNode() { delete e_; }
 
 // Defun
 DefunNode::DefunNode() {

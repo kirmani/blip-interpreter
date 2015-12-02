@@ -15,17 +15,11 @@ class ExpressionTree {
   ExpressionNode* root_;
 
  public:
-  ExpressionTree() {
-    root_ = NextExpressionNode();
-  }
+  ExpressionTree() { root_ = NextExpressionNode(); }
 
-  int Compute() {
-    return root_->Compute();
-  }
+  int Compute() { return root_->Compute(); }
 
-  ~ExpressionTree() {
-    delete root_;
-  }
+  ~ExpressionTree() { delete root_; }
 };
 
 #endif  // EXPRESSION_TREE_H_

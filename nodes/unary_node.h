@@ -11,13 +11,9 @@ class UnaryNode : public ExpressionNode {
   ExpressionNode* child_;
 
  public:
-  UnaryNode() {
-    child_ = NextExpressionNode();
-  }
+  UnaryNode() { child_ = NextExpressionNode(); }
 
-  ~UnaryNode() {
-    delete child_;
-  }
+  ~UnaryNode() { delete child_; }
 };
 
 #endif  // NODES_UNARY_NODE_H_

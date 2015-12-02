@@ -12,19 +12,19 @@
 #include "./nodes/program_nodes.h"
 
 namespace SymbolTable {
-  void Initialize();
-  void Free();
+void Initialize();
+void Free();
 
-  void AddSymbol(String name, int value);
-  void SetSymbol(String name, int value);
-  int GetSymbol(String name);
+void AddSymbol(String name, int value);
+void SetSymbol(String name, int value);
+int GetSymbol(String name);
 
-  void SwitchTable(String new_table);
-  String GetCurrentTable();
-  void DeleteTable(String name);
+void SwitchTable(String new_table);
+String GetCurrentTable();
+void DeleteTable(String name);
 
-  void AddFunction(DefunNode* func);
-  int CallFunction(String name, const Vector<int>& args);
+void AddFunction(DefunNode* func);
+int CallFunction(String name, const Vector<int>& args);
 }  // namespace SymbolTable
 
 #endif  // SYMBOL_TABLE_H_
