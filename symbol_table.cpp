@@ -7,8 +7,9 @@
 
 #include <map>
 
-#include "./nodes/program_nodes.h"
+#include "./hash_map.h"
 #include "./string.h"
+#include "./nodes/program_nodes.h"
 
 namespace SymbolTable {
 static String current_table_;
