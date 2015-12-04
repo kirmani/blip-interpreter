@@ -6,31 +6,51 @@
 #ifndef HASH_MAP_H_
 #define HASH_MAP_H_
 
+#include "./vector.h"
+
 const int kTableSize = 100;
 
 template <typename K, typename V>
 class HashNode {
  private:
-  K key;
-  V value;
-  HashNode* next;
+  K key_;
+  V value_;
+  HashNode* next_;
 
  public:
-  HashNode(const K& key, const V& value) : key(key), value(value), next(NULL) {}
+  HashNode(const K& key, const V& value) {
+    key_ = key;
+    value_ = value;
+    next_ = nullptr;
+  }
 
-  K GetKey() const { return key; }
+  K GetKey() { return key_; }
 
-  V GetValue() const { return value; }
+  V GetValue() { return value_; }
 
-  HashNode* GetNext() const { return next; }
+  void SetValue(V value) { value_ = value; }
 
-  void setNext(HashNode* next) { HashNode::next = next; }
+  HashNode* GetNext() { return next_; }
+
+  void SetNext(HashNode* next) { next_ = next; }
+};
+
+template <class String>
+struct StringHash {
+  int operator()(const String& key) const {
+    int hash_code = 11;
+    for (int i = 0; i < key.Size(); i++) {
+      hash_code *= const_cast<String&>(key)[i] * 33 + 7;
+    }
+    hash_code = hash_code % kTableSize;
+    return hash_code ? hash_code > 0 : -hash_code;
+  }
 };
 
 template <typename K>
 struct KeyHash {
-  unsigned long operator()(const K& key) const {
-    return reinterpret_cast<unsigned long>(key) % kTableSize;
+  int operator()(const K& key) const {
+    return reinterpret_cast<int>(key) % kTableSize;
   }
 };
 
@@ -39,7 +59,7 @@ class HashMap {
  public:
   HashMap() {
     // construct zero initialized has table of size
-    table = new HashNode<K, V>*[kTableSize]();
+    table = new HashNode<K, V>* [kTableSize]();
   }
 
   ~HashMap() {
@@ -57,13 +77,25 @@ class HashMap {
     delete[] table;
   }
 
-  bool Get(const K& key, V& value) {
-    unsigned long hashValue = hashFunc(key);
+  V Get(const K& key) {
+    int hashValue = hashFunc(key);
     HashNode<K, V>* entry = table[hashValue];
 
     while (entry != NULL) {
       if (entry->GetKey() == key) {
-        value = entry->GetValue();
+        return entry->GetValue();
+      }
+      entry = entry->GetNext();
+    }
+    return NULL;
+  }
+
+  bool ContainsKey(const K& key) {
+    int hashValue = hashFunc(key);
+    HashNode<K, V>* entry = table[hashValue];
+
+    while (entry != NULL) {
+      if (entry->GetKey() == key) {
         return true;
       }
       entry = entry->GetNext();
@@ -72,11 +104,11 @@ class HashMap {
   }
 
   void Put(const K& key, const V& value) {
-    unsigned long hashValue = hashFunc(key);
+    int hashValue = hashFunc(key);
     HashNode<K, V>* prev = NULL;
     HashNode<K, V>* entry = table[hashValue];
 
-    while (entry != NULL && entry->getKey() != key) {
+    while (entry != NULL && entry->GetKey() != key) {
       prev = entry;
       entry = entry->GetNext();
     }
@@ -96,7 +128,7 @@ class HashMap {
   }
 
   void Remove(const K& key) {
-    unsigned long hashValue = hashFunc(key);
+    int hashValue = hashFunc(key);
     HashNode<K, V>* prev = NULL;
     HashNode<K, V>* entry = table[hashValue];
 
@@ -117,6 +149,17 @@ class HashMap {
       }
       delete entry;
     }
+  }
+
+  Vector<K>* GetKeySet() {
+    Vector<K>* key_set = new Vector<K>;
+    for (int i = 0; i < kTableSize; i++) {
+      HashNode<K, V>* entry = table[i];
+      if (entry != NULL) {
+        key_set->Append(entry->GetKey());
+      }
+    }
+    return key_set;
   }
 
  private:
