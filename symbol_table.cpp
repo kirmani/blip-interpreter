@@ -5,8 +5,6 @@
 
 #include "./symbol_table.h"
 
-#include <map>
-
 #include "./hash_map.h"
 #include "./string.h"
 #include "./vector.h"
