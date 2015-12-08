@@ -5,8 +5,6 @@
 
 #include "./program_nodes.h"
 
-#include <sstream>
-
 #include "../expression_tree.h"
 #include "../input.h"
 #include "../string.h"
